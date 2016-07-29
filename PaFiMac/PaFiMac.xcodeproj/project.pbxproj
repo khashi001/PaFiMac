@@ -14,6 +14,8 @@
 		006B8D9B1D4AFF9E003EAC90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006B8D991D4AFF9E003EAC90 /* Main.storyboard */; };
 		006B8DA61D4AFF9E003EAC90 /* PaFiMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8DA51D4AFF9E003EAC90 /* PaFiMacTests.m */; };
 		006B8DB11D4AFF9E003EAC90 /* PaFiMacUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8DB01D4AFF9E003EAC90 /* PaFiMacUITests.m */; };
+		006B8DC01D4B0B01003EAC90 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8DBF1D4B0B01003EAC90 /* GraphView.m */; };
+		006B8DC61D4B0F5C003EAC90 /* PaFi.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8DC51D4B0F5C003EAC90 /* PaFi.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,10 @@
 		006B8DAC1D4AFF9E003EAC90 /* PaFiMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaFiMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		006B8DB01D4AFF9E003EAC90 /* PaFiMacUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaFiMacUITests.m; sourceTree = "<group>"; };
 		006B8DB21D4AFF9E003EAC90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		006B8DBE1D4B0B01003EAC90 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphView.h; path = ../GraphView.h; sourceTree = "<group>"; };
+		006B8DBF1D4B0B01003EAC90 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphView.m; path = ../GraphView.m; sourceTree = "<group>"; };
+		006B8DC41D4B0F5C003EAC90 /* PaFi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaFi.h; path = ../PaFi.h; sourceTree = "<group>"; };
+		006B8DC51D4B0F5C003EAC90 /* PaFi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaFi.m; path = ../PaFi.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,10 @@
 		006B8D8D1D4AFF9E003EAC90 /* PaFiMac */ = {
 			isa = PBXGroup;
 			children = (
+				006B8DC41D4B0F5C003EAC90 /* PaFi.h */,
+				006B8DC51D4B0F5C003EAC90 /* PaFi.m */,
+				006B8DBE1D4B0B01003EAC90 /* GraphView.h */,
+				006B8DBF1D4B0B01003EAC90 /* GraphView.m */,
 				006B8D8E1D4AFF9E003EAC90 /* AppDelegate.h */,
 				006B8D8F1D4AFF9E003EAC90 /* AppDelegate.m */,
 				006B8D941D4AFF9E003EAC90 /* ViewController.h */,
@@ -266,9 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				006B8DC61D4B0F5C003EAC90 /* PaFi.m in Sources */,
 				006B8D961D4AFF9E003EAC90 /* ViewController.m in Sources */,
 				006B8D931D4AFF9E003EAC90 /* main.m in Sources */,
 				006B8D901D4AFF9E003EAC90 /* AppDelegate.m in Sources */,
+				006B8DC01D4B0B01003EAC90 /* GraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

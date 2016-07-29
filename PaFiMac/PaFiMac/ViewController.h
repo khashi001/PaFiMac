@@ -7,8 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "GraphView.h"
 
 @interface ViewController : NSViewController
 
+@property (weak) IBOutlet NSTextField *myBoxSize;
+
+
+@property (weak) IBOutlet NSTextField *myReversalAmount;
 
 @end
