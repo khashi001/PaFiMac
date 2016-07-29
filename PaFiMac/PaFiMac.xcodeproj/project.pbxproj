@@ -1,0 +1,512 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		006B8D901D4AFF9E003EAC90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8D8F1D4AFF9E003EAC90 /* AppDelegate.m */; };
+		006B8D931D4AFF9E003EAC90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8D921D4AFF9E003EAC90 /* main.m */; };
+		006B8D961D4AFF9E003EAC90 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8D951D4AFF9E003EAC90 /* ViewController.m */; };
+		006B8D981D4AFF9E003EAC90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 006B8D971D4AFF9E003EAC90 /* Assets.xcassets */; };
+		006B8D9B1D4AFF9E003EAC90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006B8D991D4AFF9E003EAC90 /* Main.storyboard */; };
+		006B8DA61D4AFF9E003EAC90 /* PaFiMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8DA51D4AFF9E003EAC90 /* PaFiMacTests.m */; };
+		006B8DB11D4AFF9E003EAC90 /* PaFiMacUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8DB01D4AFF9E003EAC90 /* PaFiMacUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		006B8DA21D4AFF9E003EAC90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 006B8D831D4AFF9E003EAC90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 006B8D8A1D4AFF9E003EAC90;
+			remoteInfo = PaFiMac;
+		};
+		006B8DAD1D4AFF9E003EAC90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 006B8D831D4AFF9E003EAC90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 006B8D8A1D4AFF9E003EAC90;
+			remoteInfo = PaFiMac;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		006B8D8B1D4AFF9E003EAC90 /* PaFiMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaFiMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		006B8D8E1D4AFF9E003EAC90 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		006B8D8F1D4AFF9E003EAC90 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		006B8D921D4AFF9E003EAC90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		006B8D941D4AFF9E003EAC90 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		006B8D951D4AFF9E003EAC90 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		006B8D971D4AFF9E003EAC90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		006B8D9A1D4AFF9E003EAC90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		006B8D9C1D4AFF9E003EAC90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		006B8DA11D4AFF9E003EAC90 /* PaFiMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaFiMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		006B8DA51D4AFF9E003EAC90 /* PaFiMacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaFiMacTests.m; sourceTree = "<group>"; };
+		006B8DA71D4AFF9E003EAC90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		006B8DAC1D4AFF9E003EAC90 /* PaFiMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaFiMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		006B8DB01D4AFF9E003EAC90 /* PaFiMacUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaFiMacUITests.m; sourceTree = "<group>"; };
+		006B8DB21D4AFF9E003EAC90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		006B8D881D4AFF9E003EAC90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		006B8D9E1D4AFF9E003EAC90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		006B8DA91D4AFF9E003EAC90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		006B8D821D4AFF9E003EAC90 = {
+			isa = PBXGroup;
+			children = (
+				006B8D8D1D4AFF9E003EAC90 /* PaFiMac */,
+				006B8DA41D4AFF9E003EAC90 /* PaFiMacTests */,
+				006B8DAF1D4AFF9E003EAC90 /* PaFiMacUITests */,
+				006B8D8C1D4AFF9E003EAC90 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		006B8D8C1D4AFF9E003EAC90 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				006B8D8B1D4AFF9E003EAC90 /* PaFiMac.app */,
+				006B8DA11D4AFF9E003EAC90 /* PaFiMacTests.xctest */,
+				006B8DAC1D4AFF9E003EAC90 /* PaFiMacUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		006B8D8D1D4AFF9E003EAC90 /* PaFiMac */ = {
+			isa = PBXGroup;
+			children = (
+				006B8D8E1D4AFF9E003EAC90 /* AppDelegate.h */,
+				006B8D8F1D4AFF9E003EAC90 /* AppDelegate.m */,
+				006B8D941D4AFF9E003EAC90 /* ViewController.h */,
+				006B8D951D4AFF9E003EAC90 /* ViewController.m */,
+				006B8D971D4AFF9E003EAC90 /* Assets.xcassets */,
+				006B8D991D4AFF9E003EAC90 /* Main.storyboard */,
+				006B8D9C1D4AFF9E003EAC90 /* Info.plist */,
+				006B8D911D4AFF9E003EAC90 /* Supporting Files */,
+			);
+			path = PaFiMac;
+			sourceTree = "<group>";
+		};
+		006B8D911D4AFF9E003EAC90 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				006B8D921D4AFF9E003EAC90 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		006B8DA41D4AFF9E003EAC90 /* PaFiMacTests */ = {
+			isa = PBXGroup;
+			children = (
+				006B8DA51D4AFF9E003EAC90 /* PaFiMacTests.m */,
+				006B8DA71D4AFF9E003EAC90 /* Info.plist */,
+			);
+			path = PaFiMacTests;
+			sourceTree = "<group>";
+		};
+		006B8DAF1D4AFF9E003EAC90 /* PaFiMacUITests */ = {
+			isa = PBXGroup;
+			children = (
+				006B8DB01D4AFF9E003EAC90 /* PaFiMacUITests.m */,
+				006B8DB21D4AFF9E003EAC90 /* Info.plist */,
+			);
+			path = PaFiMacUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		006B8D8A1D4AFF9E003EAC90 /* PaFiMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 006B8DB51D4AFF9E003EAC90 /* Build configuration list for PBXNativeTarget "PaFiMac" */;
+			buildPhases = (
+				006B8D871D4AFF9E003EAC90 /* Sources */,
+				006B8D881D4AFF9E003EAC90 /* Frameworks */,
+				006B8D891D4AFF9E003EAC90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PaFiMac;
+			productName = PaFiMac;
+			productReference = 006B8D8B1D4AFF9E003EAC90 /* PaFiMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		006B8DA01D4AFF9E003EAC90 /* PaFiMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 006B8DB81D4AFF9E003EAC90 /* Build configuration list for PBXNativeTarget "PaFiMacTests" */;
+			buildPhases = (
+				006B8D9D1D4AFF9E003EAC90 /* Sources */,
+				006B8D9E1D4AFF9E003EAC90 /* Frameworks */,
+				006B8D9F1D4AFF9E003EAC90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				006B8DA31D4AFF9E003EAC90 /* PBXTargetDependency */,
+			);
+			name = PaFiMacTests;
+			productName = PaFiMacTests;
+			productReference = 006B8DA11D4AFF9E003EAC90 /* PaFiMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		006B8DAB1D4AFF9E003EAC90 /* PaFiMacUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 006B8DBB1D4AFF9E003EAC90 /* Build configuration list for PBXNativeTarget "PaFiMacUITests" */;
+			buildPhases = (
+				006B8DA81D4AFF9E003EAC90 /* Sources */,
+				006B8DA91D4AFF9E003EAC90 /* Frameworks */,
+				006B8DAA1D4AFF9E003EAC90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				006B8DAE1D4AFF9E003EAC90 /* PBXTargetDependency */,
+			);
+			name = PaFiMacUITests;
+			productName = PaFiMacUITests;
+			productReference = 006B8DAC1D4AFF9E003EAC90 /* PaFiMacUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		006B8D831D4AFF9E003EAC90 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Orange Forest";
+				TargetAttributes = {
+					006B8D8A1D4AFF9E003EAC90 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					006B8DA01D4AFF9E003EAC90 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 006B8D8A1D4AFF9E003EAC90;
+					};
+					006B8DAB1D4AFF9E003EAC90 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 006B8D8A1D4AFF9E003EAC90;
+					};
+				};
+			};
+			buildConfigurationList = 006B8D861D4AFF9E003EAC90 /* Build configuration list for PBXProject "PaFiMac" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 006B8D821D4AFF9E003EAC90;
+			productRefGroup = 006B8D8C1D4AFF9E003EAC90 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				006B8D8A1D4AFF9E003EAC90 /* PaFiMac */,
+				006B8DA01D4AFF9E003EAC90 /* PaFiMacTests */,
+				006B8DAB1D4AFF9E003EAC90 /* PaFiMacUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		006B8D891D4AFF9E003EAC90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				006B8D981D4AFF9E003EAC90 /* Assets.xcassets in Resources */,
+				006B8D9B1D4AFF9E003EAC90 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		006B8D9F1D4AFF9E003EAC90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		006B8DAA1D4AFF9E003EAC90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		006B8D871D4AFF9E003EAC90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				006B8D961D4AFF9E003EAC90 /* ViewController.m in Sources */,
+				006B8D931D4AFF9E003EAC90 /* main.m in Sources */,
+				006B8D901D4AFF9E003EAC90 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		006B8D9D1D4AFF9E003EAC90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				006B8DA61D4AFF9E003EAC90 /* PaFiMacTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		006B8DA81D4AFF9E003EAC90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				006B8DB11D4AFF9E003EAC90 /* PaFiMacUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		006B8DA31D4AFF9E003EAC90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 006B8D8A1D4AFF9E003EAC90 /* PaFiMac */;
+			targetProxy = 006B8DA21D4AFF9E003EAC90 /* PBXContainerItemProxy */;
+		};
+		006B8DAE1D4AFF9E003EAC90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 006B8D8A1D4AFF9E003EAC90 /* PaFiMac */;
+			targetProxy = 006B8DAD1D4AFF9E003EAC90 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		006B8D991D4AFF9E003EAC90 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				006B8D9A1D4AFF9E003EAC90 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		006B8DB31D4AFF9E003EAC90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		006B8DB41D4AFF9E003EAC90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		006B8DB61D4AFF9E003EAC90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PaFiMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.orangeforest.PaFiMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		006B8DB71D4AFF9E003EAC90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PaFiMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.orangeforest.PaFiMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		006B8DB91D4AFF9E003EAC90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PaFiMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.orangeforest.PaFiMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PaFiMac.app/Contents/MacOS/PaFiMac";
+			};
+			name = Debug;
+		};
+		006B8DBA1D4AFF9E003EAC90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PaFiMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.orangeforest.PaFiMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PaFiMac.app/Contents/MacOS/PaFiMac";
+			};
+			name = Release;
+		};
+		006B8DBC1D4AFF9E003EAC90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PaFiMacUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.orangeforest.PaFiMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PaFiMac;
+			};
+			name = Debug;
+		};
+		006B8DBD1D4AFF9E003EAC90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PaFiMacUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.orangeforest.PaFiMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PaFiMac;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		006B8D861D4AFF9E003EAC90 /* Build configuration list for PBXProject "PaFiMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				006B8DB31D4AFF9E003EAC90 /* Debug */,
+				006B8DB41D4AFF9E003EAC90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		006B8DB51D4AFF9E003EAC90 /* Build configuration list for PBXNativeTarget "PaFiMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				006B8DB61D4AFF9E003EAC90 /* Debug */,
+				006B8DB71D4AFF9E003EAC90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		006B8DB81D4AFF9E003EAC90 /* Build configuration list for PBXNativeTarget "PaFiMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				006B8DB91D4AFF9E003EAC90 /* Debug */,
+				006B8DBA1D4AFF9E003EAC90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		006B8DBB1D4AFF9E003EAC90 /* Build configuration list for PBXNativeTarget "PaFiMacUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				006B8DBC1D4AFF9E003EAC90 /* Debug */,
+				006B8DBD1D4AFF9E003EAC90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 006B8D831D4AFF9E003EAC90 /* Project object */;
+}
