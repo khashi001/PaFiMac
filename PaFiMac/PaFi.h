@@ -13,7 +13,13 @@
 @property double pafiBoxSize;
 @property NSInteger pafiReversalAmount;
 
+-(void)setInitVariables;
+
+    
 -(BOOL)updateChangeDetection;
+
+
+@property NSMutableArray *chartDataArray;
 
 
 @end

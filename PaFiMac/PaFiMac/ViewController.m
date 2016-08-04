@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "GraphView.h"
 #import "PaFi.h"
+#import "chartJSONData.h"
 
 @implementation ViewController
 
@@ -20,10 +21,12 @@
     
     //PaFiをCreate
     self.myPaFi = [[PaFi alloc] init];
+    [self.myPaFi setInitVariables];
     
     //PaFiにパラメータ値を入力
     
     //PaFiに変化検出を指示
+    [self.myPaFi updateChangeDetection];
 
     //GraphViewに描画を指示
     for (NSView *subview in self.view.subviews){
@@ -51,18 +54,31 @@
 }
 
 - (IBAction)drawGraph:(id)sender {
-    //GraphViewに描画を指示
-    for (NSView *subview in self.view.subviews){
-        if([subview.identifier isEqualToString:@"graphView"]){
-            NSLog(@"graphView Found!");
-            GraphView *graphView = (GraphView *)subview;
-            graphView.tempLineLength = 500;
-            [graphView drawOX];
-            [subview setNeedsDisplay:YES];
-            
-            
-        }
+    
+    //PaFiに変化検出を指示
+    [self.myPaFi updateChangeDetection];
+    
+    //for Debug
+    [self.myPaFi.chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
+        NSLog(@"\n  index= %lu \n date = %@ \n high = %lf \n low = %lf \n open = %lf \n close = %lf \n",(unsigned long)idx, data.date,data.high,data.low,data.open,data.close);
         
+    }];
+    
+    
+//    for(chartJSONData *data in self.myPaFi.chartDataArray){
+//        NSLog(@"\n  date = %@ \n high = %lf \n low = %lf \n open = %lf \n close = %lf \n",data.date,data.high,data.low,data.open,data.close);
+//    }
+    
+        //GraphViewに描画を指示
+        for (NSView *subview in self.view.subviews){
+            if([subview.identifier isEqualToString:@"graphView"]){
+                NSLog(@"graphView Found!");
+                GraphView *graphView = (GraphView *)subview;
+                graphView.tempLineLength = 500;
+                [graphView drawOX];
+                [subview setNeedsDisplay:YES];
+        }
     }
 }
+    
 @end

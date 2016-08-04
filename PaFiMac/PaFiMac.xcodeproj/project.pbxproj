@@ -16,6 +16,7 @@
 		006B8DB11D4AFF9E003EAC90 /* PaFiMacUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8DB01D4AFF9E003EAC90 /* PaFiMacUITests.m */; };
 		006B8DC61D4B0F5C003EAC90 /* PaFi.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8DC51D4B0F5C003EAC90 /* PaFi.m */; };
 		00B31F6D1D52E9BD008CEB3E /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B31F6C1D52E9BD008CEB3E /* GraphView.m */; };
+		00B31F701D52F682008CEB3E /* chartJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B31F6F1D52F682008CEB3E /* chartJSONData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		006B8DC51D4B0F5C003EAC90 /* PaFi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaFi.m; path = ../PaFi.m; sourceTree = "<group>"; };
 		00B31F6B1D52E9BD008CEB3E /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		00B31F6C1D52E9BD008CEB3E /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		00B31F6E1D52F682008CEB3E /* chartJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chartJSONData.h; sourceTree = "<group>"; };
+		00B31F6F1D52F682008CEB3E /* chartJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chartJSONData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 			children = (
 				006B8DC41D4B0F5C003EAC90 /* PaFi.h */,
 				006B8DC51D4B0F5C003EAC90 /* PaFi.m */,
+				00B31F6E1D52F682008CEB3E /* chartJSONData.h */,
+				00B31F6F1D52F682008CEB3E /* chartJSONData.m */,
 				006B8D8E1D4AFF9E003EAC90 /* AppDelegate.h */,
 				006B8D8F1D4AFF9E003EAC90 /* AppDelegate.m */,
 				006B8D941D4AFF9E003EAC90 /* ViewController.h */,
@@ -280,6 +285,7 @@
 				00B31F6D1D52E9BD008CEB3E /* GraphView.m in Sources */,
 				006B8D961D4AFF9E003EAC90 /* ViewController.m in Sources */,
 				006B8D931D4AFF9E003EAC90 /* main.m in Sources */,
+				00B31F701D52F682008CEB3E /* chartJSONData.m in Sources */,
 				006B8D901D4AFF9E003EAC90 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
