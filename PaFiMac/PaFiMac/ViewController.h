@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "GraphView.h"
+#import "PaFi.h"
+
 
 @interface ViewController : NSViewController
 
@@ -15,5 +17,12 @@
 
 
 @property (weak) IBOutlet NSTextField *myReversalAmount;
+
+
+- (IBAction)drawGraph:(id)sender;
+
+@property PaFi* myPaFi;
+
+
 
 @end

@@ -10,6 +10,7 @@
 
 @interface PaFi : NSObject
 
+-(PaFi *)init;
 
 
 @end

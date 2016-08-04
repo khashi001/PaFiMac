@@ -14,8 +14,8 @@
 		006B8D9B1D4AFF9E003EAC90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006B8D991D4AFF9E003EAC90 /* Main.storyboard */; };
 		006B8DA61D4AFF9E003EAC90 /* PaFiMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8DA51D4AFF9E003EAC90 /* PaFiMacTests.m */; };
 		006B8DB11D4AFF9E003EAC90 /* PaFiMacUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8DB01D4AFF9E003EAC90 /* PaFiMacUITests.m */; };
-		006B8DC01D4B0B01003EAC90 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8DBF1D4B0B01003EAC90 /* GraphView.m */; };
 		006B8DC61D4B0F5C003EAC90 /* PaFi.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8DC51D4B0F5C003EAC90 /* PaFi.m */; };
+		A38E06981D51B9F50027E6AA /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38E06971D51B9F50027E6AA /* GraphView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +51,10 @@
 		006B8DAC1D4AFF9E003EAC90 /* PaFiMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaFiMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		006B8DB01D4AFF9E003EAC90 /* PaFiMacUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaFiMacUITests.m; sourceTree = "<group>"; };
 		006B8DB21D4AFF9E003EAC90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		006B8DBE1D4B0B01003EAC90 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphView.h; path = ../GraphView.h; sourceTree = "<group>"; };
-		006B8DBF1D4B0B01003EAC90 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphView.m; path = ../GraphView.m; sourceTree = "<group>"; };
 		006B8DC41D4B0F5C003EAC90 /* PaFi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaFi.h; path = ../PaFi.h; sourceTree = "<group>"; };
 		006B8DC51D4B0F5C003EAC90 /* PaFi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaFi.m; path = ../PaFi.m; sourceTree = "<group>"; };
+		A38E06961D51B9F50027E6AA /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
+		A38E06971D51B9F50027E6AA /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,12 +107,12 @@
 			children = (
 				006B8DC41D4B0F5C003EAC90 /* PaFi.h */,
 				006B8DC51D4B0F5C003EAC90 /* PaFi.m */,
-				006B8DBE1D4B0B01003EAC90 /* GraphView.h */,
-				006B8DBF1D4B0B01003EAC90 /* GraphView.m */,
 				006B8D8E1D4AFF9E003EAC90 /* AppDelegate.h */,
 				006B8D8F1D4AFF9E003EAC90 /* AppDelegate.m */,
 				006B8D941D4AFF9E003EAC90 /* ViewController.h */,
 				006B8D951D4AFF9E003EAC90 /* ViewController.m */,
+				A38E06961D51B9F50027E6AA /* GraphView.h */,
+				A38E06971D51B9F50027E6AA /* GraphView.m */,
 				006B8D971D4AFF9E003EAC90 /* Assets.xcassets */,
 				006B8D991D4AFF9E003EAC90 /* Main.storyboard */,
 				006B8D9C1D4AFF9E003EAC90 /* Info.plist */,
@@ -277,10 +277,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				006B8DC61D4B0F5C003EAC90 /* PaFi.m in Sources */,
+				A38E06981D51B9F50027E6AA /* GraphView.m in Sources */,
 				006B8D961D4AFF9E003EAC90 /* ViewController.m in Sources */,
 				006B8D931D4AFF9E003EAC90 /* main.m in Sources */,
 				006B8D901D4AFF9E003EAC90 /* AppDelegate.m in Sources */,
-				006B8DC01D4B0B01003EAC90 /* GraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +501,7 @@
 				006B8DB71D4AFF9E003EAC90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		006B8DB81D4AFF9E003EAC90 /* Build configuration list for PBXNativeTarget "PaFiMacTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +510,7 @@
 				006B8DBA1D4AFF9E003EAC90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		006B8DBB1D4AFF9E003EAC90 /* Build configuration list for PBXNativeTarget "PaFiMacUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +519,7 @@
 				006B8DBD1D4AFF9E003EAC90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

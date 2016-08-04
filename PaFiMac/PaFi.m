@@ -10,4 +10,26 @@
 
 @implementation PaFi
 
+-(PaFi*)init{
+    NSLog(@"aaa");
+    return self;
+}
+
+
+-(void)updatePaFiData{
+    [self readChartData];
+    
+    [self writeChangedData];
+}
+
+
+-(void)readChartData{
+    // チャートデータ.JSONからデータを読み出す
+}
+
+-(void)writeChangedData{
+    //変化データをJSONとして書き出す
+    
+}
+
 @end
