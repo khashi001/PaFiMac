@@ -10,7 +10,10 @@
 
 @interface PaFi : NSObject
 
--(PaFi *)init;
+@property double pafiBoxSize;
+@property NSInteger pafiReversalAmount;
+
+-(BOOL)updateChangeDetection;
 
 
 @end

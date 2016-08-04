@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "GraphView.h"
+#import "PaFi.h"
 
 @implementation ViewController
 
@@ -17,7 +19,7 @@
     
     
     //PaFiをCreate
-    self.myPaFi = [PaFi alloc];init;
+    self.myPaFi = [[PaFi alloc] init];
     
     //PaFiにパラメータ値を入力
     
@@ -28,7 +30,8 @@
         if([subview.identifier isEqualToString:@"graphView"]){
             GraphView * graphView = (GraphView *)subview;
             graphView.tempLineLength = 100;
-            
+            [graphView drawOX];
+            [graphView setNeedsDisplay:YES];
         }
         
     }
@@ -54,7 +57,9 @@
             NSLog(@"graphView Found!");
             GraphView *graphView = (GraphView *)subview;
             graphView.tempLineLength = 500;
-            [subview setNeedsDisplay:NO];
+            [graphView drawOX];
+            [subview setNeedsDisplay:YES];
+            
             
         }
         

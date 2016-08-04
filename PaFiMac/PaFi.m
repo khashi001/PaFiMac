@@ -10,16 +10,16 @@
 
 @implementation PaFi
 
--(PaFi*)init{
-    NSLog(@"aaa");
-    return self;
-}
 
-
--(void)updatePaFiData{
+-(BOOL)updateChangeDetection{
+    
     [self readChartData];
     
     [self writeChangedData];
+    
+    NSLog(@"updateChangeDetection called.");
+    
+    return YES;
 }
 
 
