@@ -130,18 +130,6 @@
 }
 
 
--(NSInteger) getScalePosition:(double)price:(double)minPrice){
-    
-    
-    getScalePosition = ((price - minPrice) / boxSize); //価格から最小価格を引いた値を、枠の単位数量で割った商が、何番目の枠かを示す。
-    
-    if( getScalePosition < 0){
-        NSLog(@"getScalePosition Error: position is less than 0");
-        getScalePosition = 0;
-    }
-    
-}
-
 -(void)moveToNextColumn{
     
     self.drawColumn++;

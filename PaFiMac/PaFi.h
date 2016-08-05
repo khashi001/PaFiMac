@@ -24,6 +24,7 @@
 @property NSString *startDay;
 @property NSString *latestDay;
 
+@property NSInteger boxMergin;
 
 -(void)setInitVariables;
 

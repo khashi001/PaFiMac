@@ -84,83 +84,99 @@
     
     self.ruleOfDrawOX = @"Close";
     
+    self.boxMergin = 4;
+    
     self.maxPrice = 0;
-    self.minPrice = [self.chartDataArray objectAtIndex:0 ].low;
-    [self.myPaFi.chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
-        if( data.high > maxPrice){
-            _maxPrice = data.high;
+
+    chartJSONData *firstJsonData = (chartJSONData *)[self.chartDataArray objectAtIndex:0];
+    chartJSONData *lastJsonData = (chartJSONData *)[self.chartDataArray lastObject];
+
+    
+    self.minPrice = firstJsonData.low;
+    [self.chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
+        if( data.high > self.maxPrice){
+            self.maxPrice = data.high;
         }
-        if( data.low > minPrice){
-            _minPrice = data.high;
+        if( data.low > self.minPrice){
+            self.minPrice = data.high;
         }
     }];
     
-    self.startDay = [self.myPaFi.chartDataArray objectAtIndex:0].date;
-    self.latestDay = [self.myPaFi.chartDataArray lastObject].date;
+    self.startDay = firstJsonData.date;
+    self.latestDay = lastJsonData.date;
     
-    NSInteger shou;
-    shou = (minPrice / boxSize);
-    self.minBoxPrice = (double)show * boxSize; //価格の最小値を枠サイズで割り算した商に、枠サイズを掛けると、価格が配置される枠の下限値（価格帯の名前？みたいなもの）が得られる。
-    self.minBoxPrice = minBoxPrice - (boxMergin * boxSize) //マージンをとっておく。データの最小値よりもいくらか下の価格帯を最小値としておく。
+    NSInteger shou; //商
+    shou = (self.minPrice / self.boxSize);
+    self.minBoxPrice = (double)shou * self.boxSize; //価格の最小値を枠サイズで割り算した商に、枠サイズを掛けると、価格が配置される枠の下限値（価格帯の名前？みたいなもの）が得られる。
+    self.minBoxPrice = self.minBoxPrice - (self.boxMergin * self.boxSize); //マージンをとっておく。データの最小値よりもいくらか下の価格帯を最小値としておく。
     
-    shou = (maxPrice / boxSize);
-    self.maxBoxPrice = show * boxSize
-    self.maxBoxPrice = maxBoxPrice + (BoxMergin * boxSize)
+    shou = (self.maxPrice / self.boxSize);
+    self.maxBoxPrice = (double)shou * self.boxSize;
+    self.maxBoxPrice = self.maxBoxPrice + (self.boxMergin * self.boxSize);
     
     
     
 }
 
+-(NSInteger) getScalePosition:(double)myPrice minimumPrice:(double)minPrice{
+    
+    NSInteger scalePosision;
+    
+    scalePosision = ((myPrice - minPrice) / self.boxSize); //価格から最小価格を引いた値を、枠の単位数量で割った商が、何番目の枠かを示す。
+    if( scalePosision < 0){
+        NSLog(@"getScalePosition Error: position is less than 0");
+        scalePosision = 0;
+    }
+    
+    return scalePosision;
+    
+}
+
 -(void)makeScale{
     
-    [self.myPaFi.chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
-        currentBoxPosition = [self getScalePosition:data.close:minBoxPrice)];
-        currentBoxPositionLow = [self getScalePosition:data.low:minBoxPrice)];
-        currentBoxPositionHigh = [self getScalePosition:data.high:minBoxPrice)];
+    [self.chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
+        data.boxPosition = [self getScalePosition:data.close minimumPrice:self.minBoxPrice];
+        data.boxPositionLow = [self getScalePosition:data.low minimumPrice:self.minBoxPrice];
+        data.boxPositionHigh = [self getScalePosition:data.high minimumPrice:self.minBoxPrice];
         NSLog(@"debug.");
     }];
     
-    maxPositionNumber = [self getScalePosition:maxBoxPrice:minBoxPrice);
-                         minPositionNumber = [self getScalePosition:minBoxPrice:minBoxPrice);
-                                              }
-                                              
-                                              
-                                              
-                                              -(void)detectChange{
-                                                  //変化検出を行い、結果を self.chartDataArray に格納する
-                                                  
-                                                  
-                                              }
-                                              
-                                              -(void)detectChange:(NSUInteger) indexChartElement){
-                                                  
-                                                  chartJSONData *currentChartData = [self.chartDataArray objectAtIndex:indexChartElement]);
-                                                  chartJSONData *previousChartData;
-                                                  
-                                                  if( indexChartElement == 0) {  //先頭エレメント
-                                                      currentChartData.boxChangeState = @"ST";
-                                                      currentChartData.nextBoxChangeState = @"S";
-                                                      currentChartData.currentTrend = @"start";
-                                                  }
-                                                  else{
-                                                      previousChartData = [self.chartDataArray objectAtIndex:(indexChartElement - 1)];
-                                                      if( currentChartData.boxPosition < previousChartData.boxPosition){
-                                                          currentChartData.boxChangeState = "D";
-                                                          currentChartData.nextBoxChangeState = currentChartData.boxChangeState;
-                                                      }
-                                                      else if( currentChartData.boxPosition > previousChartData.boxPosition){
-                                                          currentChartData.boxChangeState = "U";
-                                                          currentChartData.nextBoxChangeState = currentChartData.boxChangeState;
-                                                      }
-                                                      else{
-                                                          //Box Position(枠の値）に変化が無い場合は、現状維持する
-                                                          currentChartData.boxChangeState = previousChartData.nextBoxChangeState;
-                                                          currentChartData.nextBoxChangeState = currentChartData.boxChangeState;
-                                                      }
-                                                  }
-                                                  
-                                              }
-                                              
-                                              
-                                              
-                                              @end
+    self.maxPositionNumber = [self getScalePosition:self.maxBoxPrice minimumPrice:self.minBoxPrice];
+    self.minPositionNumber = [self getScalePosition:self.minBoxPrice minimumPrice:self.minBoxPrice];
+}
+                              
+
+
+
+
+-(void)detectChange:(NSUInteger) indexChartElement{
+    //変化検出を行い、結果を self.chartDataArray に格納する
+    
+    chartJSONData *currentChartData = [self.chartDataArray objectAtIndex:indexChartElement];
+    chartJSONData *previousChartData;
+    
+    if( indexChartElement == 0) {  //先頭エレメント
+        currentChartData.boxChangeState = @"ST";
+        currentChartData.nextBoxChangeState = @"S";
+        currentChartData.currentTrend = @"start";
+    }
+    else{
+        previousChartData = [self.chartDataArray objectAtIndex:(indexChartElement - 1)];
+        if( currentChartData.boxPosition < previousChartData.boxPosition){
+            currentChartData.boxChangeState = "D";
+            currentChartData.nextBoxChangeState = currentChartData.boxChangeState;
+        }
+        else if( currentChartData.boxPosition > previousChartData.boxPosition){
+            currentChartData.boxChangeState = "U";
+            currentChartData.nextBoxChangeState = currentChartData.boxChangeState;
+        }
+        else{
+            //Box Position(枠の値）に変化が無い場合は、現状維持する
+            currentChartData.boxChangeState = previousChartData.nextBoxChangeState;
+            currentChartData.nextBoxChangeState = currentChartData.boxChangeState;
+        }
+    }
+    
+}
+
+@end

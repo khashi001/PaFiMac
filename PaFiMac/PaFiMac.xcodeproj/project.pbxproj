@@ -17,7 +17,6 @@
 		006B8DC61D4B0F5C003EAC90 /* PaFi.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B8DC51D4B0F5C003EAC90 /* PaFi.m */; };
 		00B31F701D52F682008CEB3E /* chartJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B31F6F1D52F682008CEB3E /* chartJSONData.m */; };
 		A3081EF51D543D1D00FE6F93 /* PaFiEngineView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3081EF41D543D1D00FE6F93 /* PaFiEngineView.m */; };
-		A3081EF71D545DEF00FE6F93 /* PaFiLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = A3081EF61D545DEF00FE6F93 /* PaFiLogic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +58,6 @@
 		00B31F6F1D52F682008CEB3E /* chartJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chartJSONData.m; sourceTree = "<group>"; };
 		A3081EF31D543D1D00FE6F93 /* PaFiEngineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaFiEngineView.h; sourceTree = "<group>"; };
 		A3081EF41D543D1D00FE6F93 /* PaFiEngineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaFiEngineView.m; sourceTree = "<group>"; };
-		A3081EF61D545DEF00FE6F93 /* PaFiLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaFiLogic.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +88,6 @@
 		006B8D821D4AFF9E003EAC90 = {
 			isa = PBXGroup;
 			children = (
-				A3081EF61D545DEF00FE6F93 /* PaFiLogic.m */,
 				006B8D8D1D4AFF9E003EAC90 /* PaFiMac */,
 				006B8DA41D4AFF9E003EAC90 /* PaFiMacTests */,
 				006B8DAF1D4AFF9E003EAC90 /* PaFiMacUITests */,
@@ -113,10 +110,10 @@
 			children = (
 				006B8DC41D4B0F5C003EAC90 /* PaFi.h */,
 				006B8DC51D4B0F5C003EAC90 /* PaFi.m */,
-				A3081EF31D543D1D00FE6F93 /* PaFiEngineView.h */,
-				A3081EF41D543D1D00FE6F93 /* PaFiEngineView.m */,
 				00B31F6E1D52F682008CEB3E /* chartJSONData.h */,
 				00B31F6F1D52F682008CEB3E /* chartJSONData.m */,
+				A3081EF31D543D1D00FE6F93 /* PaFiEngineView.h */,
+				A3081EF41D543D1D00FE6F93 /* PaFiEngineView.m */,
 				006B8D8E1D4AFF9E003EAC90 /* AppDelegate.h */,
 				006B8D8F1D4AFF9E003EAC90 /* AppDelegate.m */,
 				006B8D941D4AFF9E003EAC90 /* ViewController.h */,
@@ -286,7 +283,6 @@
 			files = (
 				006B8DC61D4B0F5C003EAC90 /* PaFi.m in Sources */,
 				006B8D961D4AFF9E003EAC90 /* ViewController.m in Sources */,
-				A3081EF71D545DEF00FE6F93 /* PaFiLogic.m in Sources */,
 				A3081EF51D543D1D00FE6F93 /* PaFiEngineView.m in Sources */,
 				006B8D931D4AFF9E003EAC90 /* main.m in Sources */,
 				00B31F701D52F682008CEB3E /* chartJSONData.m in Sources */,
