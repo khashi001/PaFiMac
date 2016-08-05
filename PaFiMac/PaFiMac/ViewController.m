@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "GraphView.h"
+#import "PaFiEngineView.h"
 #import "PaFi.h"
 #import "chartJSONData.h"
 
@@ -28,13 +28,13 @@
     //PaFiに変化検出を指示
     [self.myPaFi updateChangeDetection];
 
-    //GraphViewに描画を指示
+    //PaFiEngineViewに描画を指示
     for (NSView *subview in self.view.subviews){
-        if([subview.identifier isEqualToString:@"graphView"]){
-            GraphView * graphView = (GraphView *)subview;
-            graphView.tempLineLength = 100;
-            [graphView drawOX];
-            [graphView setNeedsDisplay:YES];
+        if([subview.identifier isEqualToString:@"paFiEngineView"]){
+            PaFiEngineView * paFiEngineView = (PaFiEngineView *)subview;
+            paFiEngineView.tempLineLength = 100;
+            [paFiEngineView drawOX];
+            [paFiEngineView setNeedsDisplay:YES];
         }
         
     }
@@ -69,13 +69,13 @@
 //        NSLog(@"\n  date = %@ \n high = %lf \n low = %lf \n open = %lf \n close = %lf \n",data.date,data.high,data.low,data.open,data.close);
 //    }
     
-        //GraphViewに描画を指示
+        //PaFiEngineViewに描画を指示
         for (NSView *subview in self.view.subviews){
-            if([subview.identifier isEqualToString:@"graphView"]){
-                NSLog(@"graphView Found!");
-                GraphView *graphView = (GraphView *)subview;
-                graphView.tempLineLength = 500;
-                [graphView drawOX];
+            if([subview.identifier isEqualToString:@"paFiEngineView"]){
+                NSLog(@"paFiEngineView Found!");
+                PaFiEngineView *paFiEngineView = (PaFiEngineView *)subview;
+                paFiEngineView.tempLineLength = 500;
+                [paFiEngineView drawOX];
                 [subview setNeedsDisplay:YES];
         }
     }

@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "GraphView.h"
+#import "PaFiEngineView.h"
 #import "PaFi.h"
 
 
