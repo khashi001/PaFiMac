@@ -37,9 +37,9 @@ typedef NS_ENUM(NSInteger, TrendState) {
 
 #pragma mark PaFi Engine
 
--(void)drawOXonPaFiEngineView{
+-(void)drawOXonPaFiEngineView:(NSArray *)chartDataArray{
     
-    [self.chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
+    [chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
         
         [self drawOXClose:idx];
         

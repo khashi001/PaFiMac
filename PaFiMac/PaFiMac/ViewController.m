@@ -32,8 +32,7 @@
     for (NSView *subview in self.view.subviews){
         if([subview.identifier isEqualToString:@"paFiEngineView"]){
             PaFiEngineView * paFiEngineView = (PaFiEngineView *)subview;
-            paFiEngineView.tempLineLength = 100;
-            [paFiEngineView drawOX];
+            [paFiEngineView drawOXonPaFiEngineView:self.myPaFi.chartDataArray];
             [paFiEngineView setNeedsDisplay:YES];
         }
         
@@ -64,21 +63,15 @@
         
     }];
     
-    
-//    for(chartJSONData *data in self.myPaFi.chartDataArray){
-//        NSLog(@"\n  date = %@ \n high = %lf \n low = %lf \n open = %lf \n close = %lf \n",data.date,data.high,data.low,data.open,data.close);
-//    }
-    
-        //PaFiEngineViewに描画を指示
-        for (NSView *subview in self.view.subviews){
-            if([subview.identifier isEqualToString:@"paFiEngineView"]){
-                NSLog(@"paFiEngineView Found!");
-                PaFiEngineView *paFiEngineView = (PaFiEngineView *)subview;
-                paFiEngineView.tempLineLength = 500;
-                [paFiEngineView drawOX];
-                [subview setNeedsDisplay:YES];
+    //PaFiEngineViewに描画を指示
+    for (NSView *subview in self.view.subviews){
+        if([subview.identifier isEqualToString:@"paFiEngineView"]){
+            NSLog(@"paFiEngineView Found!");
+            PaFiEngineView *paFiEngineView = (PaFiEngineView *)subview;
+            [paFiEngineView drawOXonPaFiEngineView:self.myPaFi.chartDataArray];
+            [subview setNeedsDisplay:YES];
         }
     }
 }
-    
+
 @end

@@ -7,8 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "PaFiEngineView.h"
+#import "chartJSONData.h"
 #import "PaFi.h"
+#import "PaFiEngineView.h"
 
 
 @interface ViewController : NSViewController

@@ -13,12 +13,10 @@
 
 @interface PaFiEngineView : NSView
 
-@property CGFloat tempLineLength;
-
 @property PaFi *myPaFi; //シングルトン対応未実施
 
 @property NSInteger drawColumn; //OXの列。トレンド転換のたびに増えていく。
 
--(void)drawOX;
+-(void)drawOXonPaFiEngineView:(NSArray *)chartDataArray;
 
 @end
