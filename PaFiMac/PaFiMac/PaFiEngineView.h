@@ -7,7 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "chartJSONData.h"
 #import "PaFi.h"
+
 
 @interface PaFiEngineView : NSView
 

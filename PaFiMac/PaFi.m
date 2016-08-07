@@ -156,18 +156,18 @@
     chartJSONData *previousChartData;
     
     if( indexChartElement == 0) {  //先頭エレメント
-        currentChartData.boxChangeState = @"ST";
-        currentChartData.nextBoxChangeState = @"S";
-        currentChartData.currentTrend = @"start";
+        currentChartData.boxChangeState = BoxChangeST;
+        currentChartData.nextBoxChangeState = BoxChangeS;
+        currentChartData.currentTrend = TrendStart;
     }
     else{
         previousChartData = [self.chartDataArray objectAtIndex:(indexChartElement - 1)];
         if( currentChartData.boxPosition < previousChartData.boxPosition){
-            currentChartData.boxChangeState = @"D";
+            currentChartData.boxChangeState = BoxChangeDOWN;
             currentChartData.nextBoxChangeState = currentChartData.boxChangeState;
         }
         else if( currentChartData.boxPosition > previousChartData.boxPosition){
-            currentChartData.boxChangeState = @"U";
+            currentChartData.boxChangeState = BoxChangeUP;
             currentChartData.nextBoxChangeState = currentChartData.boxChangeState;
         }
         else{

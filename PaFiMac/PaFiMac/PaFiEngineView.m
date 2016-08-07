@@ -8,8 +8,21 @@
 
 #import "PaFiEngineView.h"
 
+
 @implementation PaFiEngineView
 
+typedef NS_ENUM(NSInteger, BoxChangeState) {
+    BoxChangeST = 0, //"start"
+    BoxChangeS = 1,  //"S"
+    BoxChangeUP = 2,  //"U"
+    BoxChangeDOWN = 3,  //"D"
+};
+
+typedef NS_ENUM(NSInteger, TrendState) {
+    TrendStart = 0,
+    TrendUpTrend = 1,
+    TrendDown = 2,
+};
 
 #pragma mark Graphic
 - (void)drawRect:(NSRect)dirtyRect {
@@ -20,12 +33,6 @@
     
     NSLog(@"PaFiEngineView:drawRect. ここでは描画データセットを元に描画を行います。");
 }
-
--(void)drawOX{
-    //本当はここで描画もやりたいんだけど　わからないので drawRectにやらせることにする
-    NSLog(@"PaFiEngineView:drawOX. ここでは描画データセットの作成をやります。");
-}
-
 
 
 #pragma mark PaFi Engine
@@ -43,7 +50,7 @@
 
 
 
--(void)drawOXClose(NSUInteger indexChartElement){
+-(void)drawOXClose:(NSUInteger) indexChartElement{
     
     BOOL trendProceeding; //前回と今回で枠番号がトレンド方向に進行したか否か
     
@@ -137,17 +144,17 @@
 }
 
 
--(BOOL)judgeTrendProceeding:(NSString)currentTrend:(NSInteger)currentPosition:(NSInteger)previousPosition{
+-(BOOL)judgeTrendProceeding:(NSString *)currentTrend currentPosition:(NSInteger)currentPosition previousPosition:(NSInteger)previousPosition{
     
     //トレンドが継続している場合のために、前回からトレンド方向に進んだか否かを判断する
     trendProceeding = NO;
     switch(currentTrend){
-        case "UpTrend"
+        case @"UpTrend":
             if( currentPosition > previousPosition){
                 judgeTrendProceeding = YES;
             }
             break;
-        case "DownTrend"
+        case @"DownTrend":
             if( currentPosition < previousPosition){
                 judgeTrendProceeding = YES;
             }
@@ -157,7 +164,7 @@
 }
 
 
--(void)drawTheLine:(NSinteger)startBoxPosition:(NSInteger)endBoxPosition:(NSString *)mode{
+-(void)drawTheLine:(NSInteger)startBoxPosition endBoxPosition:(NSInteger)endBoxPosition mode:(NSString *)mode{
     
     NSinteger count;
     for(count=startBoxPosition; count<=endBoxPosition ; count++){
@@ -165,11 +172,11 @@
     }
 }
 
--(void)drawOneCell:(NSInteger)boxPosition:(NSString*)mode{
+-(void)drawOneCell:(NSInteger)boxPosition mode:(NSString*)mode{
     //boxPositionの位置を座標に変換し、modeで指定された印(OX)を描く。
 }
 
--(void)drawDayStr:(NSInteger)boxPosition:(NSString*)date{
+-(void)drawDayStr:(NSInteger)boxPosition mode:(NSString*)date{
     //boxPositionのすぐ近くに、dateの日付を描く。
 }
 
