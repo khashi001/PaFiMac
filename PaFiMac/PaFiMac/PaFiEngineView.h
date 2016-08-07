@@ -13,6 +13,20 @@
 
 @interface PaFiEngineView : NSView
 
+typedef NS_ENUM(NSInteger, BoxChangeState) {
+    BoxChangeST = 0, //"ST"
+    BoxChangeS = 1,  //"S"
+    BoxChangeUP = 2,  //"U"
+    BoxChangeDOWN = 3,  //"D"
+};
+
+typedef NS_ENUM(NSInteger, TrendState) {
+    TrendStart = 0,
+    TrendUpTrend = 1,
+    TrendDown = 2,
+};
+
+
 @property PaFi *myPaFi; //シングルトン対応未実施
 
 @property NSInteger drawColumn; //OXの列。トレンド転換のたびに増えていく。

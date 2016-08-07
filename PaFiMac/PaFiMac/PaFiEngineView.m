@@ -11,18 +11,6 @@
 
 @implementation PaFiEngineView
 
-typedef NS_ENUM(NSInteger, BoxChangeState) {
-    BoxChangeST = 0, //"start"
-    BoxChangeS = 1,  //"S"
-    BoxChangeUP = 2,  //"U"
-    BoxChangeDOWN = 3,  //"D"
-};
-
-typedef NS_ENUM(NSInteger, TrendState) {
-    TrendStart = 0,
-    TrendUpTrend = 1,
-    TrendDown = 2,
-};
 
 #pragma mark Graphic
 - (void)drawRect:(NSRect)dirtyRect {
@@ -41,7 +29,7 @@ typedef NS_ENUM(NSInteger, TrendState) {
     
     [chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
         
-        [self drawOXClose:idx];
+        [self drawOXClose:idx chartDataArray:chartDataArray];
         
     }];
     
@@ -50,27 +38,27 @@ typedef NS_ENUM(NSInteger, TrendState) {
 
 
 
--(void)drawOXClose:(NSUInteger) indexChartElement{
+-(void)drawOXClose:(NSUInteger) indexChartElement chartDataArray:(NSArray *)chartDataArray{
     
     BOOL trendProceeding; //前回と今回で枠番号がトレンド方向に進行したか否か
     
-    chartJSONData *currentChartData = [self.chartDataArray objectAtIndex:indexChartElement]);
+    chartJSONData *currentChartData = [chartDataArray objectAtIndex:indexChartElement];
     
     
     switch(currentChartData.currentTrend){
-        case "start"
+        case TrendStart:
             switch(currentChartData.nextBoxChangeState){
-                case "ST"
-                case "S"
+                case BoxChangeST:
+                case BoxChangeS:
                     currentChartData.currentTrendBoxPosition = currentChartData.boxPosition
                     break;
-                case "U"
+                case BoxChangeUP:
                     [self drawTheLine:currentChartData.currentTrendBoxPosition:currentChartData.boxPosition:@"UpTrend"];
                     [self drawDayStr:currentChartData.boxPosition:"UpTrend":currentChartData.date];
                     currentChartData.currentTrend = "UpTrend";
                     currentChartData.currentTrendBoxPosition = currentChartData.boxPosition
                     break;
-                case "D"
+                case BoxChangeDOWN:
                     [self drawTheLine:currentChartData.currentTrendBoxPosition:currentChartData.boxPosition:@"DownTrend"];
                     [self drawDayStr:currentChartData.boxPosition:@"DownTrend":currentChartData.date];
                     currentChartData.currentTrend = "DownTrend";
@@ -80,8 +68,8 @@ typedef NS_ENUM(NSInteger, TrendState) {
                     break;
             }
             break;
-        case "UpTrend"
-        case "U"
+        case TrendUpTrend:
+        case BoxChangeUP:
             trendProceeding = [self judgeTrendProceeding:currentTrend:currentChartData.boxPosition:currentChartData.currentTrendBoxPosition];
             if (trendProceeding) { //値がトレンド方向に増えた
                 [self drawTheLine:currentChartData.currentTrendBoxPosition:currentChartData.boxPosition:currentTrend];
@@ -89,7 +77,7 @@ typedef NS_ENUM(NSInteger, TrendState) {
                 currentChartData.currentTrendBoxPosition = currentChartData.boxPosition;
             }
             break;
-        case "D"
+        case BoxChangeDOWN:
             if (abs(currentChartData.boxPosition - currentChartData.currentTrendBoxPosition) >= self.myPaFi.reversalAmount){ //転換条件に適合した
                 [self moveToNextColumn];
                 currentChartData.currentTrendBoxPosition --; //転換後は１枠下から描く
@@ -105,8 +93,8 @@ typedef NS_ENUM(NSInteger, TrendState) {
         default
             break;
             break;
-        case "DownTrend"
-        case "D"
+        case TrendDown:
+        case BoxChangeDOWN:
             trendProceeding = [self judgeTrendProceeding:currentTrend:currentChartData.boxPosition:currentChartData.currentTrendBoxPosition];
             if (trendProceeding) { //値がトレンド方向に増えた
                 [self drawTheLine:currentChartData.currentTrendBoxPosition:currentChartData.boxPosition:currentTrend];
@@ -114,7 +102,7 @@ typedef NS_ENUM(NSInteger, TrendState) {
                 currentChartData.currentTrendBoxPosition = currentChartData.boxPosition;
             }
             break;
-        case "U"
+        case BoxChangeUP:
             if (abs(currentChartData.boxPosition - currentChartData.currentTrendBoxPosition) >= self.myPaFi.reversalAmount){ //転換条件に適合した
                 [self moveToNextColumn];
                 currentChartData.currentTrendBoxPosition ++; //転換後は１枠下から描く
