@@ -25,11 +25,11 @@
 @property NSInteger boxPositionHigh; //高値の枠番号
 @property NSInteger boxPositionLow;  //安値の枠番号
 
-@property NSInteger boxChangeState; //前回からの変化状態
+@property NSString *boxChangeState; //前回からの変化状態
 
 
 //次回への申し送り用
-@property NSInteger nextBoxChangeState; //次回はこの変化状態を参考にしてね
+@property NSString *nextBoxChangeState; //次回はこの変化状態を参考にしてね
 @property NSString *currentTrend; //現在のトレンド(start/UpTrend/DownTrend)
 @property NSString *currentTrendBoxPosition; //現在のトレンドにおける最新の枠番号。
     //currentBoxPositionとは必ずしも一致しない。たとえばトレンドは変わらないほどの

@@ -163,11 +163,11 @@
     else{
         previousChartData = [self.chartDataArray objectAtIndex:(indexChartElement - 1)];
         if( currentChartData.boxPosition < previousChartData.boxPosition){
-            currentChartData.boxChangeState = "D";
+            currentChartData.boxChangeState = @"D";
             currentChartData.nextBoxChangeState = currentChartData.boxChangeState;
         }
         else if( currentChartData.boxPosition > previousChartData.boxPosition){
-            currentChartData.boxChangeState = "U";
+            currentChartData.boxChangeState = @"U";
             currentChartData.nextBoxChangeState = currentChartData.boxChangeState;
         }
         else{

@@ -10,21 +10,5 @@
 
 @implementation chartJSONData
 
--(void)tamesi{
-    switch ( rule) {
-        case <#constant#>:
-            <#statements#>
-            break;
-            
-        default:
-            break;
-    }
-    
-    
-    for (<#initialization#>; <#condition#>; <#increment#>) {
-        <#statements#>
-    }
-    
-}
 
 @end
