@@ -58,6 +58,7 @@
 		00B31F6F1D52F682008CEB3E /* chartJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chartJSONData.m; sourceTree = "<group>"; };
 		A3081EF31D543D1D00FE6F93 /* PaFiEngineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaFiEngineView.h; sourceTree = "<group>"; };
 		A3081EF41D543D1D00FE6F93 /* PaFiEngineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaFiEngineView.m; sourceTree = "<group>"; };
+		A3CF68E31D58385F00CFE8CC /* PaFiCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaFiCommon.h; path = PaFiMac/PaFiCommon.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +89,7 @@
 		006B8D821D4AFF9E003EAC90 = {
 			isa = PBXGroup;
 			children = (
+				A3CF68E31D58385F00CFE8CC /* PaFiCommon.h */,
 				006B8D8D1D4AFF9E003EAC90 /* PaFiMac */,
 				006B8DA41D4AFF9E003EAC90 /* PaFiMacTests */,
 				006B8DAF1D4AFF9E003EAC90 /* PaFiMacUITests */,

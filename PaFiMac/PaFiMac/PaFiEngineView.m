@@ -50,13 +50,13 @@
             switch(currentChartData.nextBoxChangeState){
                 case BoxChangeST:
                 case BoxChangeS:
-                    currentChartData.currentTrendBoxPosition = currentChartData.boxPosition
+                    currentChartData.currentTrendBoxPosition = currentChartData.boxPosition;
                     break;
                 case BoxChangeUP:
                     [self drawTheLine:currentChartData.currentTrendBoxPosition:currentChartData.boxPosition:@"UpTrend"];
                     [self drawDayStr:currentChartData.boxPosition:"UpTrend":currentChartData.date];
                     currentChartData.currentTrend = "UpTrend";
-                    currentChartData.currentTrendBoxPosition = currentChartData.boxPosition
+                    currentChartData.currentTrendBoxPosition = currentChartData.boxPosition;
                     break;
                 case BoxChangeDOWN:
                     [self drawTheLine:currentChartData.currentTrendBoxPosition:currentChartData.boxPosition:@"DownTrend"];

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PaFiCommon.h"
 
 @interface chartJSONData : NSObject
 
@@ -25,13 +26,13 @@
 @property NSInteger boxPositionHigh; //高値の枠番号
 @property NSInteger boxPositionLow;  //安値の枠番号
 
-@property NSString *boxChangeState; //前回からの変化状態
+@property BoxChangeState boxChangeState; //前回からの変化状態
 
 
 //次回への申し送り用
-@property NSInteger *nextBoxChangeState; //次回はこの変化状態を参考にしてね
-@property NSInteger *currentTrend; //現在のトレンド(start/UpTrend/DownTrend)
-@property NSString *currentTrendBoxPosition; //現在のトレンドにおける最新の枠番号。
+@property BoxChangeState nextBoxChangeState; //次回はこの変化状態を参考にしてね
+@property TrendState currentTrend; //現在のトレンド(start/UpTrend/DownTrend)
+@property NSInteger currentTrendBoxPosition; //現在のトレンドにおける最新の枠番号。
     //currentBoxPositionとは必ずしも一致しない。たとえばトレンドは変わらないほどの
     //小さい上下変動が起きた場合、その変動内容はこの変数には反映されない。
 

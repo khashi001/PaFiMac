@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PaFiCommon.h"
+
 
 @interface PaFi : NSObject
 
