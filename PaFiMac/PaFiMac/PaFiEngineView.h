@@ -21,4 +21,6 @@
 
 -(void)drawOXonPaFiEngineView:(NSArray *)chartDataArray;
 
+-(void)drawTheLine:(NSInteger)startBoxPosition endBoxPosition:(NSInteger)endBoxPosition mode:(TrendMode)mode;
+
 @end

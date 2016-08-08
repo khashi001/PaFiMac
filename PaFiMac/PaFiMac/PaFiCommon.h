@@ -22,6 +22,12 @@ typedef NS_ENUM(NSInteger, TrendState) {
     TrendDown = 2,
 };
 
+typedef NS_ENUM(NSInteger, TrendMode){
+    UpTrend = 1,
+    DownTrend = 2,
+};
+
+
 
 
 #endif /* PaFiCommon_h */

@@ -53,26 +53,26 @@
                     currentChartData.currentTrendBoxPosition = currentChartData.boxPosition;
                     break;
                 case BoxChangeUP:
-                    [self drawTheLine:currentChartData.currentTrendBoxPosition:currentChartData.boxPosition:@"UpTrend"];
-                    [self drawDayStr:currentChartData.boxPosition:"UpTrend":currentChartData.date];
-                    currentChartData.currentTrend = "UpTrend";
+                    [self drawTheLine:currentChartData.currentTrendBoxPosition endBoxPosition:currentChartData.boxPosition mode:UpTrend];
+                    [self drawDayStr:currentChartData.boxPosition mode:UpTrend:currentChartData.date];
+                    currentChartData.currentTrend = TrendUpTrend;
                     currentChartData.currentTrendBoxPosition = currentChartData.boxPosition;
                     break;
                 case BoxChangeDOWN:
-                    [self drawTheLine:currentChartData.currentTrendBoxPosition:currentChartData.boxPosition:@"DownTrend"];
+                    [self drawTheLine:currentChartData.currentTrendBoxPosition endBoxPosition:currentChartData.boxPosition mode:DownTrend];
                     [self drawDayStr:currentChartData.boxPosition:@"DownTrend":currentChartData.date];
                     currentChartData.currentTrend = "DownTrend";
-                    currentChartData.currentTrendBoxPosition = currentChartData.boxPosition
+                    currentChartData.currentTrendBoxPosition = currentChartData.boxPosition;
                     break;
-                default
+                default:
                     break;
             }
             break;
         case TrendUpTrend:
         case BoxChangeUP:
-            trendProceeding = [self judgeTrendProceeding:currentTrend:currentChartData.boxPosition:currentChartData.currentTrendBoxPosition];
+            trendProceeding = [self judgeTrendProceeding:currentTrend currentChartData.boxPosition:currentChartData.currentTrendBoxPosition];
             if (trendProceeding) { //値がトレンド方向に増えた
-                [self drawTheLine:currentChartData.currentTrendBoxPosition:currentChartData.boxPosition:currentTrend];
+                [self drawTheLine:currentChartData.currentTrendBoxPosition endBoxPosition mode:currentChartData.boxPosition:currentTrend];
             				[self drawDayStr:currentChartData.boxPosition:"UpTrend":currentChartData.date];
                 currentChartData.currentTrendBoxPosition = currentChartData.boxPosition;
             }
@@ -81,10 +81,10 @@
             if (abs(currentChartData.boxPosition - currentChartData.currentTrendBoxPosition) >= self.myPaFi.reversalAmount){ //転換条件に適合した
                 [self moveToNextColumn];
                 currentChartData.currentTrendBoxPosition --; //転換後は１枠下から描く
-                [self drawTheLine:currentChartData.currentTrendBoxPosition:currentChartData.boxPosition:@"DownTrend"];
+                [self drawTheLine:currentChartData.currentTrendBoxPosition endBoxPosition:currentChartData.boxPosition mode:DownTrend];
                 [self drawDayStr:currentChartData.boxPosition:@"DownTrend":currentChartData.date];
                 currentChartData.currentTrendBoxPosition = currentChartData.boxPosition;
-                currentChartData.currentTrend = "DownTrend";
+                currentChartData.currentTrend = TrendDown;
             }
             else{
                 //なにもしない
@@ -97,7 +97,7 @@
         case BoxChangeDOWN:
             trendProceeding = [self judgeTrendProceeding:currentTrend:currentChartData.boxPosition:currentChartData.currentTrendBoxPosition];
             if (trendProceeding) { //値がトレンド方向に増えた
-                [self drawTheLine:currentChartData.currentTrendBoxPosition:currentChartData.boxPosition:currentTrend];
+                [self drawTheLine:currentChartData.currentTrendBoxPosition endBoxPosition mode:currentChartData.boxPosition:currentTrend];
             				[self drawDayStr:currentChartData.boxPosition:"DownTrend":currentChartData.date];
                 currentChartData.currentTrendBoxPosition = currentChartData.boxPosition;
             }
@@ -106,10 +106,12 @@
             if (abs(currentChartData.boxPosition - currentChartData.currentTrendBoxPosition) >= self.myPaFi.reversalAmount){ //転換条件に適合した
                 [self moveToNextColumn];
                 currentChartData.currentTrendBoxPosition ++; //転換後は１枠下から描く
-                [self drawTheLine:currentChartData.currentTrendBoxPosition:currentChartData.boxPosition:@"UpTrend"];
+                [self drawTheLine:currentChartData.currentTrendBoxPosition
+                   endBoxPosition:currentChartData.boxPosition
+                             mode:UpTrend];
                 [self drawDayStr:currentChartData.boxPosition:@"UpTrend":currentChartData.date];
                 currentChartData.currentTrendBoxPosition = currentChartData.boxPosition;
-                currentChartData.currentTrend = "UpTrend";
+                currentChartData.currentTrend = TrendUpTrend;
             }
             else{
                 //なにもしない
@@ -152,7 +154,7 @@
 }
 
 
--(void)drawTheLine:(NSInteger)startBoxPosition endBoxPosition:(NSInteger)endBoxPosition mode:(NSString *)mode{
+-(void)drawTheLine:(NSInteger)startBoxPosition endBoxPosition:(NSInteger)endBoxPosition mode:(TrendMode)mode{
     
     NSinteger count;
     for(count=startBoxPosition; count<=endBoxPosition ; count++){
@@ -160,11 +162,11 @@
     }
 }
 
--(void)drawOneCell:(NSInteger)boxPosition mode:(NSString*)mode{
+-(void)drawOneCell:(NSInteger)boxPosition mode:(TrendMode)mode{
     //boxPositionの位置を座標に変換し、modeで指定された印(OX)を描く。
 }
 
--(void)drawDayStr:(NSInteger)boxPosition mode:(NSString*)date{
+-(void)drawDayStr:(NSInteger)boxPosition date:(NSString*)date{
     //boxPositionのすぐ近くに、dateの日付を描く。
 }
 
