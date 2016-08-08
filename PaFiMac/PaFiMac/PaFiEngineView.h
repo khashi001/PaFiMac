@@ -21,6 +21,27 @@
 
 -(void)drawOXonPaFiEngineView:(NSArray *)chartDataArray;
 
--(void)drawTheLine:(NSInteger)startBoxPosition endBoxPosition:(NSInteger)endBoxPosition mode:(TrendMode)mode;
+-(void)drawTheLine:(NSInteger)startBoxPosition endBoxPosition:(NSInteger)endBoxPosition mode:(TrendState)mode;
+
+-(void)drawOneCell:(NSInteger)boxPosition mode:(TrendState)mode;
+
+-(void)drawDayStr:(NSInteger)boxPosition date:(NSString*)date;
+
+-(BOOL)judgeTrendProceeding:(TrendState)currentTrend currentPosition:(NSInteger)currentPosition previousPosition:(NSInteger)previousPosition;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end
