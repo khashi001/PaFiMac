@@ -19,7 +19,7 @@
     // Drawing code here.
     [NSBezierPath strokeLineFromPoint:NSMakePoint(0, 0) toPoint:NSMakePoint(100, 100)];
     
-    NSLog(@"PaFiEngineView:drawRect. ここでは描画データセットを元に描画を行います。");
+    NSLog(@"PaFiEngineView:drawRect Called.");
     
     [self drawOXonPaFiEngineView];
 }

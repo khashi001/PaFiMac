@@ -41,61 +41,20 @@ static id theSharedPaFi;
 
 -(BOOL)updateChangeDetection{
     
-    [self readChartData];
+    [self setParameters]; //readしたChartDataをもとに各種パラメータ値を設定する。
+    [self makeScale];
     
-    if(self.chartDataArray != nil){
-        [self setParameters]; //readしたChartDataをもとに各種パラメータ値を設定する。
-        [self makeScale];
+    [self.chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
         
-        [self.chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
-            
-            //前日からの価格枠変化状況を検出し、チャートデータに追記する。
-            [self detectChange:idx];
-            
-        }];
+        //前日からの価格枠変化状況を検出し、チャートデータに追記する。
+        [self detectChange:idx];
         
-    }
+    }];
+    
     return YES;
 }
 
 
--(void)readChartData{
-    // PoloniexのAPIを用いてJSONデータを読み出し　self.chartDataArray　に格納する
-    NSString *poloniexAPIURL = @"https://poloniex.com/public?command=returnChartData&currencyPair=BTC_ETH&start=1470150000&end=1470276000&period=14400";
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[NSURL URLWithString:poloniexAPIURL]
-            completionHandler:^(NSData *data,
-                                NSURLResponse *response,
-                                NSError *error) {
-                NSLog(@"dataTaskWithURL completed.");
-                
-                
-                if(error == nil){
-                    NSError *jsonParseError;
-                    NSArray *parsedChartJSONData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonParseError];
-                    if (self.chartDataArray.count){
-                        //過去のチャート読み取り情報は破棄する
-                        [self.chartDataArray removeAllObjects];
-                    }
-                    
-                    for(NSDictionary *object in parsedChartJSONData){
-                        chartJSONData *eachChartData = [[chartJSONData alloc]init];
-                        eachChartData.date = [object objectForKey:@"date"];
-                        eachChartData.high = [[object objectForKey:@"high"] doubleValue];
-                        eachChartData.low = [[object objectForKey:@"low"] doubleValue];
-                        eachChartData.open = [[object objectForKey:@"open"] doubleValue];
-                        eachChartData.close = [[object objectForKey:@"close"] doubleValue];
-                        [self.chartDataArray addObject:eachChartData];
-                        
-                        NSLog(@"%f,%f,%f,%f",eachChartData.high,eachChartData.low,eachChartData.open,eachChartData.close);
-                        
-                    }
-                }
-                
-            }] resume];
-    
-}
 
 -(void)setParameters{
     
@@ -151,7 +110,7 @@ static id theSharedPaFi;
         data.boxPosition = [self getScalePosition:data.close minimumPrice:self.minBoxPrice];
         data.boxPositionLow = [self getScalePosition:data.low minimumPrice:self.minBoxPrice];
         data.boxPositionHigh = [self getScalePosition:data.high minimumPrice:self.minBoxPrice];
-        NSLog(@"debug.");
+//        NSLog(@"debug.");
     }];
     
     self.maxPositionNumber = [self getScalePosition:self.maxBoxPrice minimumPrice:self.minBoxPrice];
