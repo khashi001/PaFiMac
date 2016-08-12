@@ -24,24 +24,6 @@
     self.myPaFi = [PaFi sharedPaFi];
     
 
-    //PaFiにパラメータ値を入力
-    self.myPaFi.boxSize = [self.myBoxSize.stringValue doubleValue];
-    self.myPaFi.reversalAmount = [self.myReversalAmount intValue];
-    self.myPaFi.ruleOfDrawOX = @"Close";  //将来は３種類をサポート。いまは１つだけで実装
-    
-    
-    //PaFiに変化検出を指示
-    [self.myPaFi updateChangeDetection];
-
-    //PaFiEngineViewに描画を指示
-    for (NSView *subview in self.view.subviews){
-        if([subview.identifier isEqualToString:@"paFiEngineView"]){
-            PaFiEngineView * paFiEngineView = (PaFiEngineView *)subview;
-            [paFiEngineView drawOXonPaFiEngineView];
-            [paFiEngineView setNeedsDisplay:YES];
-        }
-        
-    }
 
     
 }
@@ -56,24 +38,24 @@
 
 - (IBAction)drawGraph:(id)sender {
     
+    //PaFiにパラメータ値を入力
+    self.myPaFi.boxSize = [self.myBoxSize.stringValue doubleValue];
+    self.myPaFi.reversalAmount = [self.myReversalAmount intValue];
+    self.myPaFi.ruleOfDrawOX = @"Close";  //将来は３種類をサポート。いまは１つだけで実装
+    
     //PaFiに変化検出を指示
     [self.myPaFi updateChangeDetection];
-    
-    //for Debug
-    [self.myPaFi.chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
-        NSLog(@"\n  index= %lu \n date = %@ \n high = %lf \n low = %lf \n open = %lf \n close = %lf \n",(unsigned long)idx, data.date,data.high,data.low,data.open,data.close);
-        
-    }];
     
     //PaFiEngineViewに描画を指示
     for (NSView *subview in self.view.subviews){
         if([subview.identifier isEqualToString:@"paFiEngineView"]){
-            NSLog(@"paFiEngineView Found!");
-            PaFiEngineView *paFiEngineView = (PaFiEngineView *)subview;
+            PaFiEngineView * paFiEngineView = (PaFiEngineView *)subview;
             [paFiEngineView drawOXonPaFiEngineView];
-            [subview setNeedsDisplay:YES];
+            [paFiEngineView setNeedsDisplay:YES];
         }
+        
     }
+
 }
 
 @end

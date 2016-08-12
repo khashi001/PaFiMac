@@ -42,17 +42,19 @@ static id theSharedPaFi;
 -(BOOL)updateChangeDetection{
     
     [self readChartData];
-    [self setParameters]; //readしたChartDataをもとに各種パラメータ値を設定する。
-    [self makeScale];
     
-    [self.chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
+    if(self.chartDataArray != nil){
+        [self setParameters]; //readしたChartDataをもとに各種パラメータ値を設定する。
+        [self makeScale];
         
-        //前日からの価格枠変化状況を検出し、チャートデータに追記する。
-        [self detectChange:idx];
+        [self.chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
+            
+            //前日からの価格枠変化状況を検出し、チャートデータに追記する。
+            [self detectChange:idx];
+            
+        }];
         
-    }];
-    
-    
+    }
     return YES;
 }
 
@@ -68,24 +70,28 @@ static id theSharedPaFi;
                                 NSError *error) {
                 NSLog(@"dataTaskWithURL completed.");
                 
-                NSError *jsonParseError;
-                NSArray *parsedChartJSONData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonParseError];
-                if (self.chartDataArray.count){
-                    //過去のチャート読み取り情報は破棄する
-                    [self.chartDataArray removeAllObjects];
-                }
                 
-                for(NSDictionary *object in parsedChartJSONData){
-                    chartJSONData *eachChartData = [[chartJSONData alloc]init];
-                    eachChartData.date = [object objectForKey:@"date"];
-                    eachChartData.high = [[object objectForKey:@"high"] doubleValue];
-                    eachChartData.low = [[object objectForKey:@"low"] doubleValue];
-                    eachChartData.open = [[object objectForKey:@"open"] doubleValue];
-                    eachChartData.close = [[object objectForKey:@"close"] doubleValue];
-                    [self.chartDataArray addObject:eachChartData];
+                if(error == nil){
+                    NSError *jsonParseError;
+                    NSArray *parsedChartJSONData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonParseError];
+                    if (self.chartDataArray.count){
+                        //過去のチャート読み取り情報は破棄する
+                        [self.chartDataArray removeAllObjects];
+                    }
                     
+                    for(NSDictionary *object in parsedChartJSONData){
+                        chartJSONData *eachChartData = [[chartJSONData alloc]init];
+                        eachChartData.date = [object objectForKey:@"date"];
+                        eachChartData.high = [[object objectForKey:@"high"] doubleValue];
+                        eachChartData.low = [[object objectForKey:@"low"] doubleValue];
+                        eachChartData.open = [[object objectForKey:@"open"] doubleValue];
+                        eachChartData.close = [[object objectForKey:@"close"] doubleValue];
+                        [self.chartDataArray addObject:eachChartData];
+                        
+                        NSLog(@"%f,%f,%f,%f",eachChartData.high,eachChartData.low,eachChartData.open,eachChartData.close);
+                        
+                    }
                 }
-                
                 
             }] resume];
     
@@ -93,18 +99,12 @@ static id theSharedPaFi;
 
 -(void)setParameters{
     
-    self.boxSize = 0.02;
-    self.reversalAmount = 3;
-    
-    self.ruleOfDrawOX = @"Close";
-    
     self.boxMergin = 4;
-    
     self.maxPrice = 0;
-
+    
     chartJSONData *firstJsonData = (chartJSONData *)[self.chartDataArray objectAtIndex:0];
     chartJSONData *lastJsonData = (chartJSONData *)[self.chartDataArray lastObject];
-
+    
     
     self.minPrice = firstJsonData.low;
     [self.chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
@@ -127,7 +127,6 @@ static id theSharedPaFi;
     shou = (self.maxPrice / self.boxSize);
     self.maxBoxPrice = (double)shou * self.boxSize;
     self.maxBoxPrice = self.maxBoxPrice + (self.boxMergin * self.boxSize);
-    
     
     
 }
