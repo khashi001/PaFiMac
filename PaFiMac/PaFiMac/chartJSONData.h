@@ -11,17 +11,15 @@
 
 @interface chartJSONData : NSObject
 
-//チャートから読み出すデータ
+#pragma mark Chart JSON Data
 @property  NSString *date;
 @property double high;
 @property double low;
 @property double open;
 @property double close;
 
-//変化検出情報
-//@property NSInteger currentBoxPosition; //終値の枠番号
-//@property NSInteger currentBoxPositionHigh; //高値の枠番号
-//@property NSInteger currentBoxPositionLow;  //安値の枠番号
+
+#pragma mark Change Information
 @property NSInteger boxPosition; //終値の枠番号
 @property NSInteger boxPositionHigh; //高値の枠番号
 @property NSInteger boxPositionLow;  //安値の枠番号
@@ -29,13 +27,12 @@
 @property BoxChangeState boxChangeState; //前回からの変化状態
 
 
-//次回への申し送り用
-@property BoxChangeState nextBoxChangeState; //次回はこの変化状態を参考にしてね
-@property TrendState currentTrend; //現在のトレンド(start/UpTrend/DownTrend)
+#pragma mark Message to the Next Detection
+@property BoxChangeState nextBoxChangeState; //次回はこの変化状態を参考にしてね。
+@property TrendState currentTrend; //現在のトレンド(start/UpTrend/DownTrend)。
 @property NSInteger currentTrendBoxPosition; //現在のトレンドにおける最新の枠番号。
-    //currentBoxPositionとは必ずしも一致しない。たとえばトレンドは変わらないほどの
-    //小さい上下変動が起きた場合、その変動内容はこの変数には反映されない。
-
+                    //currentBoxPositionとは必ずしも一致しない。たとえばトレンドは変わらないほどの
+                    //小さい上下変動が起きた場合、その変動内容はこの変数には反映されない。
 
 
 @end

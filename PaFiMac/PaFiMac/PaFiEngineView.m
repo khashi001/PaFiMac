@@ -20,12 +20,17 @@
     [NSBezierPath strokeLineFromPoint:NSMakePoint(0, 0) toPoint:NSMakePoint(100, 100)];
     
     NSLog(@"PaFiEngineView:drawRect. ここでは描画データセットを元に描画を行います。");
+    
+    [self drawOXonPaFiEngineView];
 }
 
 
 #pragma mark PaFi Engine
 
--(void)drawOXonPaFiEngineView:(NSArray *)chartDataArray{
+-(void)drawOXonPaFiEngineView{
+    
+    self.myPaFi = [PaFi sharedPaFi];
+    NSArray *chartDataArray = self.myPaFi.chartDataArray;
     
     [chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
         

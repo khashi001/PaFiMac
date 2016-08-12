@@ -15,18 +15,21 @@
 @interface PaFiEngineView : NSView
 
 
-@property PaFi *myPaFi; //シングルトン対応未実施
+//PaFi本体。ここから描画のための情報を取得する。
+@property PaFi *myPaFi;
 
-@property NSInteger drawColumn; //OXの列。トレンド転換のたびに増えていく。
+//OXの列。トレンド転換のたびに増えていく。
+@property NSInteger drawColumn;
 
--(void)drawOXonPaFiEngineView:(NSArray *)chartDataArray;
+#pragma mark PaFi OX Engine
+-(void)drawOXonPaFiEngineView;
 
+#pragma mark Drawing
 -(void)drawTheLine:(NSInteger)startBoxPosition endBoxPosition:(NSInteger)endBoxPosition mode:(TrendState)mode;
-
 -(void)drawOneCell:(NSInteger)boxPosition mode:(TrendState)mode;
-
 -(void)drawDayStr:(NSInteger)boxPosition date:(NSString*)date;
 
+#pragma mark Judge Trend Proceeding
 -(BOOL)judgeTrendProceeding:(TrendState)currentTrend currentPosition:(NSInteger)currentPosition previousPosition:(NSInteger)previousPosition;
 
 

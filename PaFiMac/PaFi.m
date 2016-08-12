@@ -19,10 +19,24 @@
     
 }
 
--(void)setInitVariables{ //自身のまっさらな状態をつくるだけ
+static id theSharedPaFi;
+
++(id)sharedPaFi{
+    
+    @synchronized(self) {
+        if(theSharedPaFi == nil){
+            theSharedPaFi = [[self alloc]initWithChartDataArray];
+        }
+    }
+    return theSharedPaFi;
+}
+
+-(id)initWithChartDataArray{
     self.chartDataArray = [[NSMutableArray alloc]init];
     
+    return (id)self; //selfを返しているのは適当（使わない想定）
 }
+
 
 
 -(BOOL)updateChangeDetection{
@@ -178,5 +192,6 @@
     }
     
 }
+
 
 @end

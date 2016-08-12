@@ -13,6 +13,7 @@
 
 @implementation ViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -20,10 +21,14 @@
     
     
     //PaFiをCreate
-    self.myPaFi = [[PaFi alloc] init];
-    [self.myPaFi setInitVariables];
+    self.myPaFi = [PaFi sharedPaFi];
     
+
     //PaFiにパラメータ値を入力
+    self.myPaFi.boxSize = [self.myBoxSize.stringValue doubleValue];
+    self.myPaFi.reversalAmount = [self.myReversalAmount intValue];
+    self.myPaFi.ruleOfDrawOX = @"Close";  //将来は３種類をサポート。いまは１つだけで実装
+    
     
     //PaFiに変化検出を指示
     [self.myPaFi updateChangeDetection];
@@ -32,7 +37,7 @@
     for (NSView *subview in self.view.subviews){
         if([subview.identifier isEqualToString:@"paFiEngineView"]){
             PaFiEngineView * paFiEngineView = (PaFiEngineView *)subview;
-            [paFiEngineView drawOXonPaFiEngineView:self.myPaFi.chartDataArray];
+            [paFiEngineView drawOXonPaFiEngineView];
             [paFiEngineView setNeedsDisplay:YES];
         }
         
@@ -40,9 +45,6 @@
 
     
 }
-
-
-
 
 
 
@@ -68,7 +70,7 @@
         if([subview.identifier isEqualToString:@"paFiEngineView"]){
             NSLog(@"paFiEngineView Found!");
             PaFiEngineView *paFiEngineView = (PaFiEngineView *)subview;
-            [paFiEngineView drawOXonPaFiEngineView:self.myPaFi.chartDataArray];
+            [paFiEngineView drawOXonPaFiEngineView];
             [subview setNeedsDisplay:YES];
         }
     }

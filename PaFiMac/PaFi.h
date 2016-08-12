@@ -12,31 +12,30 @@
 
 @interface PaFi : NSObject
 
-@property double boxSize;
+#pragma mark User Defined Parameter
+@property double boxSize; //枠のサイズ
+@property NSInteger reversalAmount; //転換枠数
+@property NSString *ruleOfDrawOX;//描画ルール
 
-@property NSInteger reversalAmount;
 
-
+#pragma mark Internal Parameter
 @property double maxBoxPrice, minBoxPrice; //枠の値の最小値と最大値
 @property NSInteger maxPositionNumber, minPositionNumber; //枠番号の最小値と最大値
 @property double maxPrice, minPrice; //価格の最小値と最大値
 
-@property NSString *ruleOfDrawOX;//描画ルール
+@property NSString *startDay; //初日
+@property NSString *latestDay; //最終日
 
-@property NSString *startDay;
-@property NSString *latestDay;
+@property NSInteger boxMergin; //描画の見た目を良くするために枠を少し多くとる
 
-@property NSInteger boxMergin;
+#pragma mark Shared Instance
++(id)sharedPaFi;
 
--(void)setInitVariables;
-
-    
+#pragma mark PaFi Engine
 -(BOOL)updateChangeDetection;
 
-
-// チャートのJSONデータ
+#pragma mark Chart JSON Data
 @property NSMutableArray *chartDataArray;
-
 
 
 @end

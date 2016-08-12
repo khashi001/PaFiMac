@@ -14,9 +14,8 @@
 
 @interface ViewController : NSViewController
 
+#pragma mark User Defined Parameters
 @property (weak) IBOutlet NSTextField *myBoxSize;
-
-
 @property (weak) IBOutlet NSTextField *myReversalAmount;
 
 
