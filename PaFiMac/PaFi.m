@@ -29,6 +29,7 @@ static id theSharedPaFi;
         }
     }
     return theSharedPaFi;
+
 }
 
 -(id)initWithChartDataArray{
@@ -40,6 +41,8 @@ static id theSharedPaFi;
 
 
 -(BOOL)updateChangeDetection{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+
     
     [self setParameters]; //readしたChartDataをもとに各種パラメータ値を設定する。
     [self makeScale];
@@ -48,6 +51,7 @@ static id theSharedPaFi;
         
         //前日からの価格枠変化状況を検出し、チャートデータに追記する。
         [self detectChange:idx];
+        NSLog(@"%f,%ld,%ld",data.close,(long)data.boxPosition,(long)data.boxChangeState);
         
     }];
     
@@ -57,6 +61,8 @@ static id theSharedPaFi;
 
 
 -(void)setParameters{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+
     
     self.boxMergin = 4;
     self.maxPrice = 0;
@@ -70,8 +76,8 @@ static id theSharedPaFi;
         if( data.high > self.maxPrice){
             self.maxPrice = data.high;
         }
-        if( data.low > self.minPrice){
-            self.minPrice = data.high;
+        if( data.low < self.minPrice){
+            self.minPrice = data.low;
         }
     }];
     
@@ -91,7 +97,8 @@ static id theSharedPaFi;
 }
 
 -(NSInteger) getScalePosition:(double)myPrice minimumPrice:(double)minPrice{
-    
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+
     NSInteger scalePosision;
     
     scalePosision = ((myPrice - minPrice) / self.boxSize); //価格から最小価格を引いた値を、枠の単位数量で割った商が、何番目の枠かを示す。
@@ -106,6 +113,8 @@ static id theSharedPaFi;
 
 -(void)makeScale{
     
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+
     [self.chartDataArray enumerateObjectsUsingBlock:^(chartJSONData *data, NSUInteger idx, BOOL *stop){
         data.boxPosition = [self getScalePosition:data.close minimumPrice:self.minBoxPrice];
         data.boxPositionLow = [self getScalePosition:data.low minimumPrice:self.minBoxPrice];
@@ -122,6 +131,8 @@ static id theSharedPaFi;
 
 
 -(void)detectChange:(NSUInteger) indexChartElement{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+
     //変化検出を行い、結果を self.chartDataArray に格納する
     
     chartJSONData *currentChartData = [self.chartDataArray objectAtIndex:indexChartElement];
@@ -152,4 +163,9 @@ static id theSharedPaFi;
 }
 
 
+#pragma mark getter
+-(NSArray *)getChartDataArray{
+    return self.chartDataArray;
+    
+}
 @end

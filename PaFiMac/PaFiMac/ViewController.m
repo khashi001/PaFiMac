@@ -39,7 +39,7 @@
 - (IBAction)drawGraph:(id)sender {
     
     //PaFiにパラメータ値を入力
-    self.myPaFi.boxSize = [self.myBoxSize.stringValue doubleValue];
+    self.myPaFi.boxSize = self.myBoxSize.doubleValue;
     self.myPaFi.reversalAmount = [self.myReversalAmount intValue];
     self.myPaFi.ruleOfDrawOX = @"Close";  //将来は３種類をサポート。いまは１つだけで実装
     
@@ -51,6 +51,8 @@
 
 -(void)continueToPaFiUpdate{
     
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+
     if(self.myPaFi.chartDataArray == nil || [self.myPaFi.chartDataArray count] == 0){
         NSLog(@"PaFi chartDataArray is empty. Bye.");
     }
@@ -60,7 +62,7 @@
         
         //PaFiEngineViewに描画を指示
         for (NSView *subview in self.view.subviews){
-            if([subview.identifier isEqualToString:@"paFiEngineView"]){
+            if([subview.identifier isEqualToString:@"PaFiEngineView"]){
                 PaFiEngineView * paFiEngineView = (PaFiEngineView *)subview;
                 [paFiEngineView drawOXonPaFiEngineView];
                 [paFiEngineView setNeedsDisplay:YES];
@@ -73,6 +75,7 @@
 
 -(BOOL)readChartData{
     
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     BOOL resultVal = YES;
     
     // PoloniexのAPIを用いてJSONデータを読み出し　self.chartDataArray　に格納する
@@ -102,7 +105,7 @@
                         eachChartData.close = [[object objectForKey:@"close"] doubleValue];
                         [self.myPaFi.chartDataArray addObject:eachChartData];
                         
-                        NSLog(@"%f,%f,%f,%f",eachChartData.high,eachChartData.low,eachChartData.open,eachChartData.close);
+                        NSLog(@"%f,%f,%f,%f",eachChartData.open,eachChartData.high,eachChartData.low,eachChartData.close);
                         
                     }
                     

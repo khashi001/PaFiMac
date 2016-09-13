@@ -26,13 +26,12 @@
 
 @property BoxChangeState boxChangeState; //前回からの変化状態
 
-
-#pragma mark Message to the Next Detection
 @property BoxChangeState nextBoxChangeState; //次回はこの変化状態を参考にしてね。
 @property TrendState currentTrend; //現在のトレンド(start/UpTrend/DownTrend)。
 @property NSInteger currentTrendBoxPosition; //現在のトレンドにおける最新の枠番号。
-                    //currentBoxPositionとは必ずしも一致しない。たとえばトレンドは変わらないほどの
-                    //小さい上下変動が起きた場合、その変動内容はこの変数には反映されない。
+//currentBoxPositionとは必ずしも一致しない。たとえばトレンドは変わらないほどの
+//小さい上下変動が起きた場合、その変動内容はこの変数には反映されない。
+
 
 
 @end

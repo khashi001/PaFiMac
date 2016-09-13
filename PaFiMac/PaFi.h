@@ -36,6 +36,7 @@
 
 #pragma mark Chart JSON Data
 @property NSMutableArray *chartDataArray;
+-(NSArray *)getChartDataArray;
 
 
 @end
