@@ -59,7 +59,8 @@
     
     switch(self.currentTrend){
         case TrendStart:
-            switch(self.nextBoxChangeState){
+            switch(currentChartData.boxChangeState){
+//                    switch(self.nextBoxChangeState){
                 case BoxChangeST:
                 case BoxChangeS:
                     self.currentTrendBoxPosition = currentChartData.boxPosition;
