@@ -24,6 +24,9 @@
 @property PaFi* myPaFi;
 
 
+#pragma mark tempolary for debug
+
+@property (weak) IBOutlet NSTextField *xAsisValue;
 
 
 

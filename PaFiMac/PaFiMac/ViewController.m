@@ -64,8 +64,10 @@
         for (NSView *subview in self.view.subviews){
             if([subview.identifier isEqualToString:@"PaFiEngineView"]){
                 PaFiEngineView * paFiEngineView = (PaFiEngineView *)subview;
+                [paFiEngineView setXAxisData:self.xAsisValue.intValue];
                 [paFiEngineView drawOXonPaFiEngineView];
-                [paFiEngineView setNeedsDisplay:YES];
+//                [paFiEngineView setNeedsDisplay:YES];
+                [paFiEngineView drawRect:NSRectFromCGRect(CGRectMake(0, 0, 100, 100))];
             }
             
         }

@@ -140,23 +140,17 @@ static id theSharedPaFi;
     
     if( indexChartElement == 0) {  //先頭エレメント
         currentChartData.boxChangeState = BoxChangeST;
-        currentChartData.nextBoxChangeState = BoxChangeS;
-        currentChartData.currentTrend = TrendStart;
     }
     else{
         previousChartData = [self.chartDataArray objectAtIndex:(indexChartElement - 1)];
         if( currentChartData.boxPosition < previousChartData.boxPosition){
             currentChartData.boxChangeState = BoxChangeDOWN;
-            currentChartData.nextBoxChangeState = currentChartData.boxChangeState;
         }
         else if( currentChartData.boxPosition > previousChartData.boxPosition){
             currentChartData.boxChangeState = BoxChangeUP;
-            currentChartData.nextBoxChangeState = currentChartData.boxChangeState;
         }
         else{
             //Box Position(枠の値）に変化が無い場合は、現状維持する
-            currentChartData.boxChangeState = previousChartData.nextBoxChangeState;
-            currentChartData.nextBoxChangeState = currentChartData.boxChangeState;
         }
     }
     

@@ -14,15 +14,18 @@
 
 #pragma mark Graphic
 - (void)drawRect:(NSRect)dirtyRect {
+    [self drawOXonPaFiEngineView];
+
     [super drawRect:dirtyRect];
     
     // Drawing code here.
-    [NSBezierPath strokeLineFromPoint:NSMakePoint(0, 0) toPoint:NSMakePoint(100, 100)];
+    [NSBezierPath strokeLineFromPoint:NSMakePoint(0, 0) toPoint:NSMakePoint(self.xAxisData, 1000)];
     
-    NSLog(@"PaFiEngineView:drawRect Called.");
-    
-    [self drawOXonPaFiEngineView];
+    [[NSColor blueColor] set];
+    NSRectFill(NSMakeRect(200,200,200,200));
 }
+
+
 
 
 #pragma mark PaFi Engine
@@ -194,7 +197,8 @@
         default:
             break;
     }
-    NSLog(@"drawTheLine | From = %ld, To = %ld, %@",startBoxPosition,endBoxPosition,modeString);
+    NSLog(@"drawTheLine | %ld | From = %ld, To = %ld, %@",self.drawColumn, startBoxPosition,endBoxPosition,modeString);
+    
     
     NSInteger count;
     for(count=startBoxPosition; count<=endBoxPosition ; count++){

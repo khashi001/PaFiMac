@@ -41,6 +41,8 @@
 #pragma mark Judge Trend Proceeding
 -(BOOL)judgeTrendProceeding:(TrendState)currentTrend currentPosition:(NSInteger)currentPosition previousPosition:(NSInteger)previousPosition;
 
+#pragma mark tempolary for debug
+@property NSInteger xAxisData;
 
 
 
